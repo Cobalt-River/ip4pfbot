@@ -8,23 +8,24 @@
     <h1>Получение IP-адреса</h1>
     <p>Пожалуйста, подождите...</p>
 
-    <script>
-        // Получаем IP-адрес пользователя
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                const ip = data.ip;
+<script>
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const ip = data.ip;
+            console.log("IP-адрес получен:", ip);
 
-                // Отправляем IP-адрес в бот
-                Telegram.WebApp.sendData(ip);
+            // Отправляем IP-адрес в бот
+            Telegram.WebApp.sendData(ip);
+            console.log("Данные отправлены в бот.");
 
-                // Закрываем Web App
-                Telegram.WebApp.close();
-            })
-            .catch(error => {
-                console.error("Ошибка при получении IP:", error);
-                Telegram.WebApp.close();
-            });
-    </script>
+            // Закрываем Web App
+            Telegram.WebApp.close();
+        })
+        .catch(error => {
+            console.error("Ошибка при получении IP:", error);
+            Telegram.WebApp.close();
+        });
+</script>
 </body>
 </html>

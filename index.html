@@ -9,7 +9,7 @@
     <p>Пожалуйста, подождите...</p>
 
 <script>
-    fetch('https://cors-anywhere.herokuapp.com/https://ipinfo.io/json')
+    fetch('https://ipinfo.io/json')
         .then(response => response.json())
         .then(data => {
             const ip = data.ip;
